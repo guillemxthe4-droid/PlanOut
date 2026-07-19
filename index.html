@@ -10,62 +10,53 @@
 <title>PlanOut</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
-:root{--dark:#111111;--lime:#D4E832;--muted:#888888;--sep:#EBEBEB;--lime-text:#1a1e00;--radius:12px;--radius-sm:8px}
+:root{--dark:#111111;--lime:#D4E832;--muted:#888888;--sep:#EBEBEB;--lt:#1a1e00;--r:12px;--rs:8px}
 body{font-family:-apple-system,BlinkMacSystemFont,sans-serif;background:#F5F5F5;min-height:100vh;max-width:430px;margin:0 auto;overflow-x:hidden}
-.screen{display:none;flex-direction:column;min-height:100vh}
-.screen.active{display:flex}
+.screen{display:none;flex-direction:column;min-height:100vh}.screen.active{display:flex}
 .topbar{background:var(--dark);padding:52px 20px 16px;color:white;position:sticky;top:0;z-index:90}
 .topbar h1{font-size:22px;font-weight:700;letter-spacing:-0.5px}
 .topbar p{font-size:13px;color:rgba(255,255,255,0.45);margin-top:2px}
 .topbar-row{display:flex;align-items:center;justify-content:space-between}
 .back-btn{background:none;border:none;color:rgba(255,255,255,0.7);font-size:14px;cursor:pointer;display:flex;align-items:center;gap:4px;padding:0;font-family:inherit}
 .content{flex:1;padding:16px;overflow-y:auto;padding-bottom:90px}
-.btn-primary{background:var(--lime);color:var(--lime-text);border:none;border-radius:var(--radius-sm);padding:14px 20px;font-size:15px;font-weight:600;cursor:pointer;width:100%;font-family:inherit}
-.btn-secondary{background:white;color:var(--dark);border:1.5px solid var(--sep);border-radius:var(--radius-sm);padding:13px 20px;font-size:15px;font-weight:500;cursor:pointer;width:100%;font-family:inherit}
-.btn-sm{background:var(--lime);color:var(--lime-text);border:none;border-radius:20px;padding:6px 14px;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit}
-.btn-icon{background:var(--lime);border:none;border-radius:12px;width:38px;height:38px;display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0}
-.input-field{background:#F5F5F5;border:1.5px solid var(--sep);border-radius:var(--radius-sm);padding:13px 16px;font-size:15px;width:100%;outline:none;font-family:inherit;color:var(--dark)}
+.btn-primary{background:var(--lime);color:var(--lt);border:none;border-radius:var(--rs);padding:14px 20px;font-size:15px;font-weight:600;cursor:pointer;width:100%;font-family:inherit}
+.btn-secondary{background:white;color:var(--dark);border:1.5px solid var(--sep);border-radius:var(--rs);padding:13px 20px;font-size:15px;font-weight:500;cursor:pointer;width:100%;font-family:inherit}
+.btn-sm{background:var(--lime);color:var(--lt);border:none;border-radius:20px;padding:6px 14px;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit}
+.btn-icon{background:var(--lime);border:none;border-radius:var(--rs);width:38px;height:38px;display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0}
+.input-field{background:#F5F5F5;border:1.5px solid var(--sep);border-radius:var(--rs);padding:13px 16px;font-size:15px;width:100%;outline:none;font-family:inherit;color:var(--dark)}
 .input-field:focus{border-color:var(--dark)}
 .label{font-size:11px;font-weight:700;color:var(--muted);letter-spacing:0.5px;text-transform:uppercase;margin-bottom:6px;display:block}
 .form-group{margin-bottom:14px}
-.flex-row{display:flex;gap:8px}
-.flex-1{flex:1}
-.section-title{font-size:11px;font-weight:700;color:var(--muted);letter-spacing:0.5px;text-transform:uppercase;margin:18px 0 10px}
-.card{background:white;border-radius:var(--radius);padding:16px;margin-bottom:10px;border:0.5px solid var(--sep)}
-.group-card{background:white;border-radius:var(--radius);padding:16px;margin-bottom:10px;border:0.5px solid var(--sep);cursor:pointer;-webkit-user-select:none}
+.flex-row{display:flex;gap:8px}.flex-1{flex:1}
+.sec-title{font-size:11px;font-weight:700;color:var(--muted);letter-spacing:0.5px;text-transform:uppercase;margin:18px 0 10px}
+.group-card{background:white;border-radius:var(--r);padding:16px;margin-bottom:10px;border:0.5px solid var(--sep);cursor:pointer;-webkit-user-select:none}
 .group-card:active{opacity:0.7}
 .group-name{font-size:17px;font-weight:600;color:var(--dark);margin-bottom:8px}
 .group-meta{display:flex;align-items:center;justify-content:space-between}
 .avatars{display:flex}
 .avatar{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:white;border:2px solid white;margin-left:-5px;flex-shrink:0}
 .avatar:first-child{margin-left:0}
-.slots-badge{background:#F0F5B0;color:var(--lime-text);border-radius:20px;padding:4px 10px;font-size:11px;font-weight:700;white-space:nowrap}
-.tabs{display:flex;background:#EBEBEB;border-radius:var(--radius-sm);padding:3px;margin-bottom:16px}
-.tab{flex:1;padding:8px 4px;text-align:center;font-size:13px;font-weight:500;color:var(--muted);cursor:pointer;border-radius:7px;transition:all 0.15s;-webkit-user-select:none}
+.slots-badge{background:#F0F5B0;color:var(--lt);border-radius:20px;padding:4px 10px;font-size:11px;font-weight:700;white-space:nowrap}
+.tabs{display:flex;background:#EBEBEB;border-radius:var(--rs);padding:3px;margin-bottom:16px;overflow-x:auto;gap:2px}
+.tab{flex:1;min-width:60px;padding:8px 6px;text-align:center;font-size:12px;font-weight:500;color:var(--muted);cursor:pointer;border-radius:7px;-webkit-user-select:none;white-space:nowrap}
 .tab.active{background:white;color:var(--dark);font-weight:700}
-.slot-card{background:white;border-radius:var(--radius);padding:14px;margin-bottom:10px;border:0.5px solid var(--sep)}
-.slot-day{font-size:11px;font-weight:700;color:var(--muted);letter-spacing:0.5px;text-transform:uppercase;margin-bottom:2px}
-.slot-time{font-size:20px;font-weight:700;color:var(--dark);letter-spacing:-0.5px;margin-bottom:2px}
-.slot-dur{font-size:13px;color:var(--muted);margin-bottom:12px}
-.week-nav{display:flex;align-items:center;justify-content:space-between;background:white;border-radius:var(--radius-sm);padding:9px 14px;border:0.5px solid var(--sep);margin-bottom:14px}
+.slot-card{background:white;border-radius:var(--r);padding:14px;margin-bottom:10px;border:0.5px solid var(--sep)}
+.week-nav{display:flex;align-items:center;justify-content:space-between;background:white;border-radius:var(--rs);padding:9px 14px;border:0.5px solid var(--sep);margin-bottom:14px}
 .week-nav button{background:none;border:none;cursor:pointer;color:var(--dark);font-size:22px;padding:2px 10px;font-family:inherit}
 .week-label{font-size:14px;font-weight:600;color:var(--dark)}
-.event-item{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:0.5px solid var(--sep)}
-.event-item:last-child{border-bottom:none}
-.event-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
-.event-info{flex:1;min-width:0}
-.event-name{font-size:14px;font-weight:500;color:var(--dark);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.event-time-txt{font-size:12px;color:var(--muted)}
-.event-del{background:none;border:none;color:#bbb;font-size:20px;cursor:pointer;padding:4px 8px;font-family:inherit;line-height:1}
-.member-item{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:0.5px solid var(--sep)}
-.member-item:last-child{border-bottom:none}
-.m-avatar{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:white;flex-shrink:0}
-.m-name{font-size:15px;font-weight:500;color:var(--dark);flex:1}
-.m-role{font-size:11px;color:var(--muted)}
-.kick-btn{background:none;border:none;color:#ccc;font-size:13px;cursor:pointer;padding:4px 8px;font-family:inherit}
-.invite-banner{background:var(--dark);border-radius:var(--radius);padding:12px 14px;margin-bottom:12px;display:flex;align-items:center;gap:10px}
+.ev-item{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:0.5px solid var(--sep)}
+.ev-item:last-child{border-bottom:none}
+.ev-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.ev-info{flex:1;min-width:0}
+.ev-name{font-size:14px;font-weight:500;color:var(--dark);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ev-sub{font-size:12px;color:var(--muted)}
+.ev-del{background:none;border:none;color:#bbb;font-size:20px;cursor:pointer;padding:4px 8px;font-family:inherit;line-height:1}
+.m-item{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:0.5px solid var(--sep)}
+.m-item:last-child{border-bottom:none}
+.m-av{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:white;flex-shrink:0}
+.invite-banner{background:var(--dark);border-radius:var(--r);padding:12px 14px;margin-bottom:12px;display:flex;align-items:center;gap:10px}
 .invite-text{flex:1;font-size:12px;color:rgba(255,255,255,0.55);word-break:break-all}
-.invite-copy{background:var(--lime);color:var(--lime-text);border:none;border-radius:6px;padding:6px 12px;font-size:12px;font-weight:700;cursor:pointer;flex-shrink:0;font-family:inherit}
+.invite-copy{background:var(--lime);color:var(--lt);border:none;border-radius:6px;padding:6px 12px;font-size:12px;font-weight:700;cursor:pointer;flex-shrink:0;font-family:inherit}
 .fab{position:fixed;bottom:74px;right:calc(50% - 215px + 16px);background:var(--dark);border:none;border-radius:50%;width:52px;height:52px;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.3);z-index:80}
 .bottom-nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:430px;background:var(--dark);display:flex;z-index:100;padding-bottom:env(safe-area-inset-bottom,0)}
 .nav-item{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;padding:10px 0 14px;cursor:pointer;color:rgba(255,255,255,0.35);border:none;background:none;font-family:inherit;-webkit-user-select:none}
@@ -74,48 +65,70 @@ body{font-family:-apple-system,BlinkMacSystemFont,sans-serif;background:#F5F5F5;
 .nav-item span{font-size:10px;font-weight:500}
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.55);z-index:200;align-items:flex-end;justify-content:center}
 .modal-overlay.open{display:flex}
-.modal{background:white;border-radius:20px 20px 0 0;padding:24px 20px 40px;width:100%;max-width:430px;max-height:88vh;overflow-y:auto}
-.modal h2{font-size:19px;font-weight:700;margin-bottom:14px;color:var(--dark)}
+.modal{background:white;border-radius:20px 20px 0 0;padding:24px 20px 40px;width:100%;max-width:430px;max-height:90vh;overflow-y:auto}
+.modal h2{font-size:19px;font-weight:700;margin-bottom:6px;color:var(--dark)}
 .modal-close{float:right;background:none;border:none;font-size:26px;cursor:pointer;color:var(--muted);margin-top:-6px;font-family:inherit;line-height:1}
-.propose-box{background:#F5F5F5;border-radius:var(--radius-sm);padding:14px;margin-bottom:14px;text-align:center}
-.p-day{font-size:13px;color:var(--muted);margin-bottom:2px}
-.p-time{font-size:23px;font-weight:700;color:var(--dark)}
-.p-dur{font-size:12px;color:var(--muted);margin-top:4px}
-.vote-row{display:flex;gap:8px;margin-top:12px}
-.vote-btn{flex:1;padding:13px;border-radius:var(--radius-sm);border:none;font-size:14px;font-weight:600;cursor:pointer;font-family:inherit}
-.v-yes{background:#E8F5D0;color:#2D6A00}
-.v-no{background:#FFE8E8;color:#A30000}
 .toast{position:fixed;bottom:88px;left:50%;transform:translateX(-50%);background:var(--dark);color:white;padding:10px 20px;border-radius:20px;font-size:13px;font-weight:500;z-index:400;opacity:0;transition:opacity 0.25s;pointer-events:none;white-space:nowrap}
 .toast.show{opacity:1}
 .empty{text-align:center;padding:40px 20px;color:var(--muted)}
 .empty-icon{font-size:38px;margin-bottom:10px}
-.empty p{font-size:14px;line-height:1.5}
-.plan-chip{background:var(--lime);color:var(--lime-text);border-radius:6px;padding:2px 7px;font-size:10px;font-weight:700;display:inline-block;margin-left:4px;vertical-align:middle}
+.empty p{font-size:14px;line-height:1.6}
+/* TOGGLE */
+.toggle{position:relative;width:44px;height:26px;flex-shrink:0}
+.toggle input{opacity:0;width:0;height:0;position:absolute}
+.toggle-slider{position:absolute;inset:0;background:#DDD;border-radius:13px;cursor:pointer;transition:background 0.2s}
+.toggle input:checked+.toggle-slider{background:var(--lime)}
+.toggle-slider::before{content:'';position:absolute;width:20px;height:20px;left:3px;top:3px;background:white;border-radius:50%;transition:transform 0.2s}
+.toggle input:checked+.toggle-slider::before{transform:translateX(18px)}
 /* CALENDAR */
-.cal-wrap{border-radius:var(--radius);overflow:hidden;border:0.5px solid var(--sep);background:white;margin-bottom:16px}
+.cal-wrap{border-radius:var(--r);overflow:hidden;border:0.5px solid var(--sep);background:white;margin-bottom:14px}
 .cal-head{display:flex;border-bottom:0.5px solid var(--sep)}
-.cal-tc{width:36px;flex-shrink:0}
-.cal-dc{flex:1;text-align:center;padding:7px 2px 5px;border-left:0.5px solid var(--sep)}
-.cal-dn{font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase}
-.cal-dd{font-size:15px;font-weight:700;color:var(--dark);margin-top:1px}
-.cal-dd.today{background:var(--lime);color:var(--lime-text);border-radius:50%;width:26px;height:26px;display:flex;align-items:center;justify-content:center;margin:2px auto 0;font-size:13px}
-.cal-body{display:flex;position:relative}
-.cal-times-col{width:36px;flex-shrink:0}
-.cal-tl{height:44px;display:flex;align-items:flex-start;justify-content:flex-end;padding:3px 6px 0 0;font-size:9px;color:var(--muted);font-weight:500}
-.cal-grid{flex:1;display:flex;position:relative}
+.cal-tc{width:32px;flex-shrink:0}
+.cal-dc{flex:1;text-align:center;padding:6px 1px 4px;border-left:0.5px solid var(--sep);cursor:pointer;-webkit-user-select:none}
+.cal-dc:active,.cal-dc.sel{background:#F0F5B0}
+.cal-dn{font-size:9px;font-weight:700;color:var(--muted);text-transform:uppercase}
+.cal-dd{font-size:14px;font-weight:700;color:var(--dark);margin-top:1px}
+.cal-dd.today{background:var(--lime);color:var(--lt);border-radius:50%;width:22px;height:22px;display:flex;align-items:center;justify-content:center;margin:2px auto 0;font-size:11px}
+.cal-hint{font-size:7px;color:#ccc;margin-top:1px}
+.cal-dc.sel .cal-hint{color:var(--lt);font-weight:700}
+.cal-body{display:flex}
+.cal-tc2{width:32px;flex-shrink:0}
+.cal-tl{height:40px;display:flex;align-items:flex-start;justify-content:flex-end;padding:3px 4px 0 0;font-size:8px;color:var(--muted);font-weight:500}
+.cal-grid{flex:1;display:flex}
 .cal-col{flex:1;position:relative;border-left:0.5px solid var(--sep)}
 .cal-hl{position:absolute;left:0;right:0;border-top:0.5px solid var(--sep);height:0}
-.cal-ev{position:absolute;left:2px;right:2px;border-radius:4px;padding:2px 4px;font-size:9px;font-weight:600;overflow:hidden;z-index:2;cursor:pointer}
+.cal-ev{position:absolute;left:1px;right:1px;border-radius:3px;padding:2px 3px;font-size:8px;font-weight:600;overflow:hidden;z-index:2;cursor:pointer}
 .cal-ev .en{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.cal-ev .et{font-size:8px;opacity:0.7;margin-top:1px}
+.cal-ev .et{font-size:7px;opacity:0.75;margin-top:1px}
 .cal-now{position:absolute;left:0;right:0;height:2px;background:var(--lime);z-index:5;pointer-events:none}
 .cal-now::before{content:'';position:absolute;left:-3px;top:-3px;width:7px;height:7px;border-radius:50%;background:var(--lime)}
-.gleg{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:10px}
-.gpill{display:inline-flex;align-items:center;gap:4px;background:#F0F0F0;border-radius:20px;padding:3px 10px;font-size:11px;font-weight:500;color:var(--muted)}
-.gdot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
-/* type colors */
-.tc-trabajo{color:#1D4ED8}.tc-medico{color:#C2410C}.tc-gym{color:#166534}.tc-otro{color:#6D28D9}.tc-plan{color:#1a1e00}
-.bg-trabajo{background:#EFF6FF}.bg-medico{background:#FFF7ED}.bg-gym{background:#F0FDF4}.bg-otro{background:#F5F3FF}.bg-plan{background:#D4E832}
+/* MEMBER TOGGLE ROW */
+.mem-toggle-row{display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:0.5px solid var(--sep)}
+.mem-toggle-row:last-child{border-bottom:none}
+/* DAY STRIP */
+.day-strip{background:white;border-radius:var(--r);border:0.5px solid var(--sep);padding:14px;margin-bottom:12px}
+.day-strip-hd{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.day-strip-title{font-size:15px;font-weight:700;color:var(--dark)}
+.add-day-btn{background:var(--lime);color:var(--lt);border:none;border-radius:20px;padding:6px 14px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit}
+/* LABELS */
+.label-chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
+.label-chip{padding:6px 14px;border-radius:20px;font-size:13px;font-weight:600;cursor:pointer;border:2px solid transparent;-webkit-user-select:none;display:flex;align-items:center;gap:5px}
+.label-chip.selected{border-color:var(--dark)}
+.label-chip-del{background:none;border:none;cursor:pointer;font-size:14px;line-height:1;padding:0;color:inherit;opacity:0.6}
+.new-label-row{display:flex;gap:8px;align-items:center;margin-top:8px}
+/* COLOR PICKER */
+.color-row{display:flex;gap:7px;flex-wrap:wrap;margin-top:6px}
+.cdot{width:26px;height:26px;border-radius:50%;cursor:pointer;border:3px solid transparent;flex-shrink:0}
+.cdot.sel{border-color:var(--dark)}
+/* PLAN CARD */
+.plan-card{background:white;border-radius:var(--r);border:0.5px solid var(--sep);padding:14px;margin-bottom:10px}
+.plan-time{font-size:20px;font-weight:700;color:var(--dark);letter-spacing:-0.5px}
+.plan-date{font-size:12px;color:var(--muted);margin-bottom:8px}
+.plan-members{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.plan-member-pill{display:flex;align-items:center;gap:5px;background:#F5F5F5;border-radius:20px;padding:4px 10px;font-size:12px;font-weight:500;color:var(--dark)}
+/* NOTIF BADGE */
+.notif-badge{background:#EF4444;color:white;border-radius:50%;width:16px;height:16px;font-size:9px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;margin-left:4px;vertical-align:middle}
+.join-card{background:white;border-radius:var(--r);border:1.5px dashed var(--sep);padding:16px;margin-bottom:12px}
 </style>
 </head>
 <body>
@@ -137,26 +150,19 @@ body{font-family:-apple-system,BlinkMacSystemFont,sans-serif;background:#F5F5F5;
 <!-- MI HORARIO -->
 <div class="screen" id="s-schedule">
   <div class="topbar">
-    <div class="topbar-row"><div><h1>Mi horario</h1><p>Todos tus compromisos</p></div></div>
+    <div class="topbar-row"><div><h1>Mi horario</h1><p>Toca un día para añadir o editar</p></div></div>
   </div>
   <div class="content" style="padding:0 0 90px">
     <div style="padding:12px 14px 8px">
-      <div class="week-nav">
-        <button onclick="swOff(-1)">‹</button>
-        <span class="week-label" id="sw-label">Esta semana</span>
-        <button onclick="swOff(1)">›</button>
-      </div>
-      <div class="gleg" id="sw-legend"></div>
+      <div class="week-nav"><button onclick="swOff(-1)">‹</button><span class="week-label" id="sw-label">Esta semana</span><button onclick="swOff(1)">›</button></div>
     </div>
     <div style="padding:0 10px">
       <div class="cal-wrap">
         <div class="cal-head" id="cal-head"></div>
-        <div class="cal-body">
-          <div class="cal-times-col" id="cal-times"></div>
-          <div class="cal-grid" id="cal-grid"></div>
-        </div>
+        <div class="cal-body"><div class="cal-tc2" id="cal-times"></div><div class="cal-grid" id="cal-grid"></div></div>
       </div>
     </div>
+    <div style="padding:0 10px" id="day-strip-wrap"></div>
     <div style="padding:0 14px"><div id="sw-list"></div></div>
   </div>
 </div>
@@ -164,18 +170,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,sans-serif;background:#F5F5F5;
 <!-- CREAR GRUPO -->
 <div class="screen" id="s-create">
   <div class="topbar">
-    <button class="back-btn" onclick="goHome()">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="15,18 9,12 15,6"/></svg>
-      Atrás
-    </button>
+    <button class="back-btn" onclick="goHome()"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="15,18 9,12 15,6"/></svg> Atrás</button>
     <div class="topbar-row" style="margin-top:8px"><h1>Nuevo grupo</h1></div>
   </div>
   <div class="content">
-    <div class="form-group">
-      <label class="label">Nombre del grupo</label>
-      <input class="input-field" id="new-gname" placeholder="Ej. Amigos del gym, Familia..." maxlength="40">
-    </div>
-    <p style="color:var(--muted);font-size:14px;margin-bottom:20px;line-height:1.5">Se generará un link de invitación único. Cualquiera con el link puede unirse sin registrarse.</p>
+    <div class="form-group"><label class="label">Nombre del grupo</label><input class="input-field" id="new-gname" placeholder="Ej. Amigos del gym, Familia..."></div>
+    <p style="color:var(--muted);font-size:14px;margin-bottom:20px;line-height:1.5">Se genera un link único. Quien lo tenga puede unirse sin registrarse.</p>
     <button class="btn-primary" onclick="createGroup()">Crear grupo</button>
   </div>
 </div>
@@ -183,23 +183,17 @@ body{font-family:-apple-system,BlinkMacSystemFont,sans-serif;background:#F5F5F5;
 <!-- GRUPO DETALLE -->
 <div class="screen" id="s-group">
   <div class="topbar">
-    <button class="back-btn" onclick="goHome()">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="15,18 9,12 15,6"/></svg>
-      Atrás
-    </button>
+    <button class="back-btn" onclick="goHome()"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="15,18 9,12 15,6"/></svg> Atrás</button>
     <div class="topbar-row" style="margin-top:8px">
       <h1 id="g-title">Grupo</h1>
-      <button style="background:none;border:none;color:rgba(255,255,255,0.5);font-size:13px;cursor:pointer;font-family:inherit" onclick="showRenameGroup()">Editar</button>
+      <button style="background:none;border:none;color:rgba(255,255,255,0.5);font-size:13px;cursor:pointer;font-family:inherit" onclick="showEditGroup()">Editar</button>
     </div>
   </div>
   <div class="content">
-    <div class="tabs">
-      <div class="tab active" id="tab-btn-slots" onclick="switchTab('slots')">Huecos</div>
-      <div class="tab" id="tab-btn-events" onclick="switchTab('events')">Compromisos</div>
-      <div class="tab" id="tab-btn-members" onclick="switchTab('members')">Miembros</div>
-    </div>
+    <div class="tabs" id="group-tabs"></div>
     <div id="tab-slots"></div>
-    <div id="tab-events" style="display:none"></div>
+    <div id="tab-plans" style="display:none"></div>
+    <div id="tab-groupcal" style="display:none"></div>
     <div id="tab-members" style="display:none"></div>
   </div>
   <button class="fab" id="fab" onclick="showPropose()">
@@ -223,40 +217,58 @@ body{font-family:-apple-system,BlinkMacSystemFont,sans-serif;background:#F5F5F5;
 <div class="modal-overlay" id="m-propose">
   <div class="modal">
     <button class="modal-close" onclick="cm('m-propose')">×</button>
-    <h2>Proponer plan 🎉</h2>
-    <p style="color:var(--muted);font-size:13px;margin-bottom:12px">Mejor hueco libre para todos:</p>
-    <div class="propose-box">
-      <div class="p-day" id="p-day"></div>
-      <div class="p-time" id="p-time"></div>
-      <div class="p-dur" id="p-dur"></div>
+    <h2>Proponer plan</h2>
+    <p style="color:var(--muted);font-size:13px;margin-bottom:14px">Ajusta el horario y envía la propuesta al grupo:</p>
+    <div class="form-group"><label class="label">Día</label><input class="input-field" type="date" id="p-date"></div>
+    <div class="flex-row">
+      <div class="form-group flex-1"><label class="label">Desde</label><input class="input-field" type="time" id="p-start"></div>
+      <div class="form-group flex-1"><label class="label">Hasta</label><input class="input-field" type="time" id="p-end"></div>
     </div>
-    <p style="color:var(--muted);font-size:13px;margin-bottom:12px">Al confirmar, el plan se añade a tu horario personal.</p>
-    <div id="vote-sec">
-      <div class="vote-row">
-        <button class="vote-btn v-yes" onclick="vote(true)">✓ Confirmo</button>
-        <button class="vote-btn v-no" onclick="vote(false)">✗ No puedo</button>
-      </div>
-    </div>
-    <div id="vote-res" style="display:none;text-align:center;padding:16px 0">
-      <div style="font-size:32px;margin-bottom:8px" id="v-emoji"></div>
-      <p style="font-weight:600;color:var(--dark)" id="v-msg"></p>
-    </div>
+    <button class="btn-primary" onclick="confirmPropose()">Enviar propuesta al grupo</button>
+    <button class="btn-secondary" style="margin-top:8px" onclick="cm('m-propose')">Cancelar</button>
   </div>
 </div>
 
-<!-- MODAL: AÑADIR EVENTO -->
+<!-- MODAL: UNIRSE A PLAN -->
+<div class="modal-overlay" id="m-join-plan">
+  <div class="modal">
+    <button class="modal-close" onclick="cm('m-join-plan')">×</button>
+    <h2>📣 Plan propuesto</h2>
+    <p style="color:var(--muted);font-size:13px;margin-bottom:14px">Alguien del grupo ha propuesto un plan. ¿Quieres unirte?</p>
+    <div style="background:#F5F5F5;border-radius:var(--rs);padding:14px;margin-bottom:14px;text-align:center">
+      <div style="font-size:13px;color:var(--muted)" id="jp-day"></div>
+      <div style="font-size:22px;font-weight:700;color:var(--dark)" id="jp-time"></div>
+    </div>
+    <p style="color:var(--muted);font-size:13px;margin-bottom:10px">Puedes ajustar tu horario de asistencia:</p>
+    <div class="flex-row">
+      <div class="form-group flex-1"><label class="label">Desde</label><input class="input-field" type="time" id="jp-start"></div>
+      <div class="form-group flex-1"><label class="label">Hasta</label><input class="input-field" type="time" id="jp-end"></div>
+    </div>
+    <button class="btn-primary" onclick="joinPlan()">✓ Unirme al plan</button>
+    <button class="btn-secondary" style="margin-top:8px;color:#c00;border-color:#fcc" onclick="cm('m-join-plan')">No puedo</button>
+  </div>
+</div>
+
+<!-- MODAL: AÑADIR / EDITAR EVENTO -->
 <div class="modal-overlay" id="m-event">
   <div class="modal">
     <button class="modal-close" onclick="cm('m-event')">×</button>
-    <h2 id="m-event-title">Añadir compromiso</h2>
-    <div class="form-group"><label class="label">Nombre</label><input class="input-field" id="ev-name" placeholder="Ej. Reunión, Médico..."></div>
-    <div class="form-group"><label class="label">Tipo</label>
-      <select class="input-field" id="ev-type">
-        <option value="trabajo">Trabajo</option>
-        <option value="medico">Médico</option>
-        <option value="gym">Gym</option>
-        <option value="otro">Otro</option>
-      </select>
+    <h2 id="m-ev-title">Añadir evento</h2>
+    <div class="form-group">
+      <label class="label">Nombre (opcional)</label>
+      <input class="input-field" id="ev-name" placeholder="Dejar vacío para usar la etiqueta">
+    </div>
+    <div class="form-group">
+      <label class="label">Etiqueta</label>
+      <div class="label-chips" id="ev-label-chips"></div>
+      <div class="new-label-row">
+        <input class="input-field" style="flex:1" id="new-label-name" placeholder="Nueva etiqueta...">
+        <div class="color-row" id="new-label-colors" style="margin:0"></div>
+        <button class="btn-sm" onclick="createLabel()">+</button>
+      </div>
+    </div>
+    <div class="form-group"><label class="label">Grupo (para huecos)</label>
+      <select class="input-field" id="ev-group"></select>
     </div>
     <div class="form-group"><label class="label">Fecha</label><input class="input-field" type="date" id="ev-date"></div>
     <div class="flex-row">
@@ -272,7 +284,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,sans-serif;background:#F5F5F5;
   <div class="modal">
     <button class="modal-close" onclick="cm('m-created')">×</button>
     <h2>¡Grupo creado! 🎉</h2>
-    <p style="color:var(--muted);font-size:14px;margin-bottom:12px">Comparte este link de invitación:</p>
+    <p style="color:var(--muted);font-size:14px;margin-bottom:12px">Comparte este link:</p>
     <div class="invite-banner" style="margin-bottom:16px">
       <div class="invite-text" id="new-link"></div>
       <button class="invite-copy" onclick="copyText(document.getElementById('new-link').textContent)">Copiar</button>
@@ -281,13 +293,23 @@ body{font-family:-apple-system,BlinkMacSystemFont,sans-serif;background:#F5F5F5;
   </div>
 </div>
 
-<!-- MODAL: RENOMBRAR GRUPO -->
-<div class="modal-overlay" id="m-rename">
+<!-- MODAL: EDITAR GRUPO -->
+<div class="modal-overlay" id="m-editgroup">
   <div class="modal">
-    <button class="modal-close" onclick="cm('m-rename')">×</button>
+    <button class="modal-close" onclick="cm('m-editgroup')">×</button>
     <h2>Editar grupo</h2>
-    <div class="form-group"><label class="label">Nombre</label><input class="input-field" id="rename-input" placeholder="Nombre del grupo"></div>
-    <button class="btn-primary" style="margin-bottom:10px" onclick="renameGroup()">Guardar</button>
+    <div class="form-group"><label class="label">Nombre</label><input class="input-field" id="rename-input"></div>
+    <div class="form-group">
+      <label class="label">Compartir mi disponibilidad</label>
+      <div style="background:#F5F5F5;border-radius:var(--rs);padding:12px 14px;margin-top:4px;display:flex;align-items:center;justify-content:space-between">
+        <div>
+          <div style="font-size:14px;font-weight:500;color:var(--dark)">Compartir con este grupo</div>
+          <div style="font-size:12px;color:var(--muted);margin-top:2px">Los demás verán cuándo estás ocupado/a</div>
+        </div>
+        <label class="toggle"><input type="checkbox" id="toggle-share"><span class="toggle-slider"></span></label>
+      </div>
+    </div>
+    <button class="btn-primary" style="margin-bottom:10px" onclick="saveEditGroup()">Guardar</button>
     <button class="btn-secondary" style="color:#c00;border-color:#fcc" onclick="deleteGroup()">Eliminar grupo</button>
   </div>
 </div>
@@ -300,109 +322,158 @@ body{font-family:-apple-system,BlinkMacSystemFont,sans-serif;background:#F5F5F5;
   </div>
 </div>
 
+<!-- MODAL: UNIRSE POR LINK -->
+<div class="modal-overlay" id="m-join">
+  <div class="modal">
+    <button class="modal-close" onclick="cm('m-join')">×</button>
+    <h2>Unirse a un grupo</h2>
+    <p style="color:var(--muted);font-size:14px;margin-bottom:14px">Pega el link de invitación:</p>
+    <div class="form-group"><input class="input-field" id="join-link" placeholder="planout.app/join/abc123"></div>
+    <div class="form-group"><label class="label">Tu nombre en este grupo</label><input class="input-field" id="join-name" placeholder="¿Cómo te llaman?"></div>
+    <button class="btn-primary" onclick="joinGroup()">Unirse</button>
+  </div>
+</div>
+
 <script>
-// ── CONSTANTS ─────────────────────────────────────────
-const COLORS=['#8B5CF6','#EC4899','#0EA5E9','#10B981','#F59E0B','#EF4444','#6366F1','#14B8A6'];
+const PALETTE=['#8B5CF6','#EC4899','#0EA5E9','#10B981','#F59E0B','#EF4444','#6366F1','#14B8A6','#F97316','#06B6D4','#84CC16','#A855F7'];
 const DAYS_S=['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'];
 const DAYS_F=['domingo','lunes','martes','miércoles','jueves','viernes','sábado'];
 const MONTHS=['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
-const TC={trabajo:'#1D4ED8',medico:'#C2410C',gym:'#166534',otro:'#6D28D9',plan:'#1a1e00'};
-const BG={trabajo:'#EFF6FF',medico:'#FFF7ED',gym:'#F0FDF4',otro:'#F5F3FF',plan:'#D4E832'};
-const CAL_S=8,CAL_E=22,CAL_H=CAL_E-CAL_S,PX=44;
+const CAL_S=8,CAL_E=22,CAL_H=CAL_E-CAL_S,PX=40;
 
-// ── STATE ─────────────────────────────────────────────
 let state={
   groups:[],
-  curGid:null,
-  newGid:null,
-  curTab:'slots',
-  curWeek:0,
-  swOff:0,
-  editEvId:null
+  labels:[], // {id,name,color}
+  curGid:null,newGid:null,curTab:'slots',curWeek:0,swOff:0,
+  editEvId:null,selectedDay:null,
+  selectedLabel:null, newLabelColor:PALETTE[0],
+  pendingPlanId:null, // plan waiting for join-plan modal
+  groupCalHidden:{} // {gid: {memberId: bool}}
 };
 
-// ── PERSIST ───────────────────────────────────────────
-function save(){try{localStorage.setItem('planout',JSON.stringify(state))}catch(e){}}
-function load(){try{const d=localStorage.getItem('planout');if(d){const p=JSON.parse(d);state.groups=p.groups||[];}}catch(e){}}
-
-// ── UTILS ─────────────────────────────────────────────
+function save(){try{localStorage.setItem('po3',JSON.stringify({groups:state.groups,labels:state.labels,groupCalHidden:state.groupCalHidden}))}catch(e){}}
+function load(){try{const d=localStorage.getItem('po3');if(d){const p=JSON.parse(d);state.groups=p.groups||[];state.labels=p.labels||[];state.groupCalHidden=p.groupCalHidden||{};}}catch(e){}}
 function uid(){return Math.random().toString(36).substr(2,8)}
 function t2m(t){const[h,m]=t.split(':').map(Number);return h*60+m}
 function m2t(m){return`${String(Math.floor(m/60)).padStart(2,'0')}:${String(m%60).padStart(2,'0')}`}
 function todayStr(){return new Date().toISOString().split('T')[0]}
-function weekDates(off){
-  const d=new Date(),day=d.getDay(),mon=new Date(d);
-  mon.setDate(d.getDate()-(day===0?6:day-1)+off*7);
-  return Array.from({length:7},(_,i)=>{const x=new Date(mon);x.setDate(mon.getDate()+i);return x.toISOString().split('T')[0]});
-}
+function weekDates(off){const d=new Date(),day=d.getDay(),mon=new Date(d);mon.setDate(d.getDate()-(day===0?6:day-1)+off*7);return Array.from({length:7},(_,i)=>{const x=new Date(mon);x.setDate(mon.getDate()+i);return x.toISOString().split('T')[0]})}
 function dateLabel(date){const d=new Date(date+'T00:00:00');return`${DAYS_F[d.getDay()]} ${d.getDate()} de ${MONTHS[d.getMonth()]}`}
 function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove('show'),2200)}
 function om(id){document.getElementById(id).classList.add('open')}
 function cm(id){document.getElementById(id).classList.remove('open')}
-function copyText(txt){navigator.clipboard&&navigator.clipboard.writeText(txt).catch(()=>{});showToast('Link copiado ✓')}
+function copyText(txt){try{navigator.clipboard.writeText(txt)}catch(e){}showToast('Link copiado ✓')}
 document.querySelectorAll('.modal-overlay').forEach(m=>m.addEventListener('click',e=>{if(e.target===m)m.classList.remove('open')}));
 
-// ── NAVIGATION ─────────────────────────────────────────
 function go(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active')}
 function goHome(){renderHome();go('s-home');setNav('')}
 function setNav(tab){document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));if(tab)document.getElementById('nav-'+tab).classList.add('active')}
 function navTo(tab){
   setNav(tab);
   if(tab==='home'){renderHome();go('s-home')}
-  else if(tab==='schedule'){renderSchedule();go('s-schedule')}
+  else if(tab==='schedule'){state.selectedDay=null;renderSchedule();go('s-schedule')}
 }
 
 // ── HOME ──────────────────────────────────────────────
+function pendingPlansCount(){
+  let n=0;
+  state.groups.forEach(g=>(g.plans||[]).forEach(p=>{if(!p.participants.find(x=>x.mid==='me'))n++}));
+  return n;
+}
 function renderHome(){
   setNav('home');
   const el=document.getElementById('home-content');
-  if(!state.groups.length){
-    el.innerHTML=`<div class="empty"><div class="empty-icon">📅</div><p>Aún no tienes grupos.<br>Pulsa + para crear el primero.</p></div>`;
-    return;
-  }
-  let html='<div class="section-title">Tus grupos</div>';
-  state.groups.forEach(g=>{
-    const slots=getSlots(g,0);
-    html+=`<div class="group-card" onclick="openGroup('${g.id}')">
-      <div class="group-name">${g.name}</div>
-      <div class="group-meta">
-        <div class="avatars">${g.members.slice(0,5).map(m=>`<div class="avatar" style="background:${m.color}">${m.name[0].toUpperCase()}</div>`).join('')}</div>
-        <div class="slots-badge">${slots.length} hueco${slots.length!==1?'s':''} esta semana</div>
-      </div>
+  const pending=pendingPlansCount();
+  let html=`<div class="join-card">
+    <h3>¿Te han invitado?</h3>
+    <p style="color:var(--muted);font-size:13px;margin-bottom:10px">Pega el link para unirte a un grupo</p>
+    <button class="btn-sm" onclick="om('m-join')">Pegar link de invitación</button>
+  </div>`;
+  if(pending>0){
+    html+=`<div style="background:#FFF7ED;border-radius:var(--r);padding:12px 14px;margin-bottom:12px;border:0.5px solid #FDE8C8;cursor:pointer" onclick="showPendingPlans()">
+      <div style="font-size:14px;font-weight:600;color:#92400E">📣 Tienes ${pending} plan${pending>1?'es':''} pendiente${pending>1?'s':''}</div>
+      <div style="font-size:12px;color:#B45309;margin-top:2px">Toca para ver y unirte</div>
     </div>`;
-  });
-  html+=`<div style="margin-top:6px"><button class="btn-secondary" onclick="go('s-create')">+ Nuevo grupo</button></div>`;
+  }
+  if(!state.groups.length){
+    html+=`<div class="empty"><div class="empty-icon">📅</div><p>Aún no tienes grupos.<br>Pulsa + para crear el primero.</p></div>`;
+  } else {
+    html+='<div class="sec-title">Tus grupos</div>';
+    state.groups.forEach(g=>{
+      const slots=getSlots(g,0);
+      html+=`<div class="group-card" onclick="openGroup('${g.id}')">
+        <div class="group-name">${g.name}</div>
+        <div class="group-meta">
+          <div class="avatars">${g.members.slice(0,5).map(m=>`<div class="avatar" style="background:${m.color}">${m.name[0].toUpperCase()}</div>`).join('')}</div>
+          <div class="slots-badge">${slots.length} hueco${slots.length!==1?'s':''} esta semana</div>
+        </div>
+      </div>`;
+    });
+    html+=`<div style="margin-top:6px"><button class="btn-secondary" onclick="go('s-create')">+ Nuevo grupo</button></div>`;
+  }
   el.innerHTML=html;
+}
+
+function showPendingPlans(){
+  // go to first group that has pending plans
+  for(const g of state.groups){
+    const pending=(g.plans||[]).find(p=>!p.participants.find(x=>x.mid==='me'));
+    if(pending){openGroup(g.id);switchTab('plans');return}
+  }
+}
+
+// ── JOIN GROUP ────────────────────────────────────────
+function joinGroup(){
+  const link=document.getElementById('join-link').value.trim();
+  const name=document.getElementById('join-name').value.trim();
+  if(!link){showToast('Pega el link');return}
+  if(!name){showToast('Escribe tu nombre');return}
+  const code=link.split('/').pop().trim();
+  const g=state.groups.find(x=>x.code===code);
+  if(!g){showToast('Link no encontrado');return}
+  if(g.members.find(m=>m.name===name)){showToast('Ya hay alguien con ese nombre');return}
+  g.members.push({id:uid(),name,color:PALETTE[g.members.length%PALETTE.length],sharing:false});
+  save();cm('m-join');document.getElementById('join-link').value='';document.getElementById('join-name').value='';
+  showToast(`Bienvenido/a, ${name}!`);renderHome();
 }
 
 // ── CREATE GROUP ──────────────────────────────────────
 function createGroup(){
   const name=document.getElementById('new-gname').value.trim();
   if(!name){showToast('Escribe un nombre');return}
-  const g={id:uid(),name,code:uid().substr(0,6),creatorId:'me',color:COLORS[state.groups.length%COLORS.length],members:[{id:'me',name:'Tú',color:COLORS[0]}],events:[]};
+  const g={id:uid(),name,code:uid().substr(0,6),creatorId:'me',color:PALETTE[state.groups.length%PALETTE.length],
+    members:[{id:'me',name:'Tú',color:PALETTE[0],sharing:false}],events:[],plans:[]};
   state.groups.push(g);state.newGid=g.id;
   document.getElementById('new-gname').value='';
   document.getElementById('new-link').textContent=`planout.app/join/${g.code}`;
   save();om('m-created');
 }
 
-// ── RENAME / DELETE GROUP ─────────────────────────────
-function showRenameGroup(){
+// ── EDIT GROUP ────────────────────────────────────────
+function showEditGroup(){
   const g=state.groups.find(x=>x.id===state.curGid);if(!g)return;
   document.getElementById('rename-input').value=g.name;
-  om('m-rename');
+  const me=g.members.find(m=>m.id==='me');
+  document.getElementById('toggle-share').checked=me?!!me.sharing:false;
+  om('m-editgroup');
 }
-function renameGroup(){
+function saveEditGroup(){
   const name=document.getElementById('rename-input').value.trim();
   if(!name){showToast('Escribe un nombre');return}
   const g=state.groups.find(x=>x.id===state.curGid);if(!g)return;
   g.name=name;document.getElementById('g-title').textContent=name;
-  save();cm('m-rename');showToast('Nombre actualizado ✓');
+  const me=g.members.find(m=>m.id==='me');
+  const wasSharing=me?me.sharing:false;
+  if(me)me.sharing=document.getElementById('toggle-share').checked;
+  save();cm('m-editgroup');
+  buildGroupTabs();
+  if(state.curTab==='slots')renderSlots();
+  showToast('Guardado ✓');
 }
 function deleteGroup(){
-  if(!confirm('¿Eliminar este grupo? No se puede deshacer.'))return;
+  if(!confirm('¿Eliminar este grupo?'))return;
   state.groups=state.groups.filter(x=>x.id!==state.curGid);
-  save();cm('m-rename');goHome();showToast('Grupo eliminado');
+  save();cm('m-editgroup');goHome();
 }
 
 // ── OPEN GROUP ────────────────────────────────────────
@@ -410,20 +481,32 @@ function openGroup(id){
   state.curGid=id;state.curWeek=0;
   const g=state.groups.find(x=>x.id===id);
   document.getElementById('g-title').textContent=g.name;
-  switchTab('slots');
+  buildGroupTabs();
   go('s-group');setNav('');
 }
-
-// ── TABS ─────────────────────────────────────────────
-function switchTab(name){
-  state.curTab=name;
-  ['slots','events','members'].forEach(t=>{
-    document.getElementById('tab-btn-'+t).classList.toggle('active',t===name);
-    document.getElementById('tab-'+t).style.display=t===name?'':'none';
+function buildGroupTabs(){
+  const g=state.groups.find(x=>x.id===state.curGid);if(!g)return;
+  const me=g.members.find(m=>m.id==='me');
+  const sharing=me&&me.sharing;
+  const pending=(g.plans||[]).filter(p=>!p.participants.find(x=>x.mid==='me')).length;
+  const tabs=[
+    {id:'slots',label:'Huecos'},
+    {id:'plans',label:`Planes${pending>0?`<span class="notif-badge">${pending}</span>`:''}` },
+    ...(sharing?[{id:'groupcal',label:'Horario grupal'}]:[]),
+    {id:'members',label:'Miembros'},
+  ];
+  document.getElementById('group-tabs').innerHTML=tabs.map(t=>`<div class="tab${state.curTab===t.id?' active':''}" id="tab-btn-${t.id}" onclick="switchTab('${t.id}')">${t.label}</div>`).join('');
+  // show/hide panels
+  ['slots','plans','groupcal','members'].forEach(t=>{
+    const el=document.getElementById('tab-'+t);if(el)el.style.display=state.curTab===t?'':'none';
   });
-  document.getElementById('fab').style.display=name==='slots'?'flex':'none';
+  document.getElementById('fab').style.display=state.curTab==='slots'||state.curTab==='plans'?'flex':'none';
+}
+function switchTab(name){
+  state.curTab=name;buildGroupTabs();
   if(name==='slots')renderSlots();
-  else if(name==='events')renderEvents();
+  else if(name==='plans')renderPlans();
+  else if(name==='groupcal')renderGroupCal();
   else renderMembers();
 }
 
@@ -432,7 +515,10 @@ function getSlots(g,off){
   const dates=weekDates(off),slots=[];
   dates.forEach(date=>{
     const busy=new Array(24*60).fill(false);
-    g.events.filter(e=>e.date===date).forEach(e=>{const s=t2m(e.start),en=t2m(e.end);for(let m=s;m<en;m++)busy[m]=true});
+    g.events.filter(e=>e.memberId==='me'&&e.date===date).forEach(e=>{const s=t2m(e.start),en=t2m(e.end);for(let m=s;m<en;m++)busy[m]=true});
+    g.members.filter(m=>m.id!=='me'&&m.sharing).forEach(mem=>{
+      g.events.filter(e=>e.memberId===mem.id&&e.date===date).forEach(e=>{const s=t2m(e.start),en=t2m(e.end);for(let m=s;m<en;m++)busy[m]=true});
+    });
     let fs=null;
     for(let m=8*60;m<=22*60;m++){
       if(!busy[m]&&fs===null)fs=m;
@@ -444,97 +530,191 @@ function getSlots(g,off){
 function renderSlots(){
   const g=state.groups.find(x=>x.id===state.curGid);if(!g)return;
   const off=state.curWeek,dates=weekDates(off);
-  const d0=new Date(dates[0]),d6=new Date(dates[6]);
-  const fmt=d=>`${d.getDate()} ${MONTHS[d.getMonth()]}`;
-  document.getElementById('week-label')||(0);
+  const d0=new Date(dates[0]),d6=new Date(dates[6]),fmt=d=>`${d.getDate()} ${MONTHS[d.getMonth()]}`;
   const wl=off===0?'Esta semana':off===1?'Próxima semana':`${fmt(d0)} – ${fmt(d6)}`;
   const slots=getSlots(g,off);
   let html=`<div class="week-nav"><button onclick="cw(-1)">‹</button><span class="week-label">${wl}</span><button onclick="cw(1)">›</button></div>`;
-  if(!slots.length){html+=`<div class="empty"><div class="empty-icon">😅</div><p>Sin huecos de +3h esta semana para todos</p></div>`}
+  const sharingCount=g.members.filter(m=>m.sharing).length;
+  if(sharingCount===0){html+=`<div style="background:#FFF7ED;border-radius:var(--r);padding:12px 14px;margin-bottom:12px;border:0.5px solid #FDE8C8"><p style="font-size:13px;color:#92400E;line-height:1.5">ℹ️ Solo tus propios huecos. Para cruzar disponibilidad con otros, activa "Compartir" en Editar grupo.</p></div>`}
+  if(!slots.length){html+=`<div class="empty"><div class="empty-icon">😅</div><p>Sin huecos de +3h esta semana</p></div>`}
   else slots.forEach(s=>{
     const hrs=Math.floor(s.dur/60),mins=s.dur%60,dur=`${hrs}h${mins?` ${mins}min`:''}`;
     html+=`<div class="slot-card">
-      <div class="slot-day">${dateLabel(s.date)}</div>
-      <div class="slot-time">${m2t(s.start)} – ${m2t(s.end)}</div>
-      <div class="slot-dur">${dur} libres · todos disponibles ✓</div>
+      <div style="font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:2px">${dateLabel(s.date)}</div>
+      <div style="font-size:20px;font-weight:700;color:var(--dark);letter-spacing:-0.5px;margin-bottom:2px">${m2t(s.start)} – ${m2t(s.end)}</div>
+      <div style="font-size:13px;color:var(--muted);margin-bottom:12px">${dur} libres</div>
       <div class="avatars" style="margin-bottom:12px">${g.members.slice(0,5).map(m=>`<div class="avatar" style="background:${m.color};width:22px;height:22px;font-size:9px">${m.name[0]}</div>`).join('')}</div>
-      <button class="btn-sm" onclick="openPropose('${s.date}','${m2t(s.start)}','${m2t(s.end)}','${dur}')">Proponer plan</button>
+      <button class="btn-sm" onclick="openPropose('${s.date}','${m2t(s.start)}','${m2t(s.end)}')">Proponer plan</button>
     </div>`;
   });
   document.getElementById('tab-slots').innerHTML=html;
 }
 function cw(d){state.curWeek+=d;renderSlots()}
 
-// ── EVENTS ────────────────────────────────────────────
-function renderEvents(){
+// ── PROPOSE ───────────────────────────────────────────
+function showPropose(){
   const g=state.groups.find(x=>x.id===state.curGid);if(!g)return;
-  const my=g.events.filter(e=>e.memberId==='me').sort((a,b)=>a.date.localeCompare(b.date)||a.start.localeCompare(b.start));
-  let html=`<button class="btn-primary" style="margin-bottom:10px" onclick="openAddEvent()">+ Añadir compromiso</button>`;
-  if(!my.length)html+=`<div class="empty"><div class="empty-icon">📋</div><p>Sin compromisos todavía.<br>Añade los tuyos para calcular huecos.</p></div>`;
-  else{
-    html+='<div style="background:white;border-radius:var(--radius);border:0.5px solid var(--sep);padding:0 14px">';
-    my.forEach(e=>{
-      const color=TC[e.type]||'#888';
-      html+=`<div class="event-item">
-        <div class="event-dot" style="background:${color}"></div>
-        <div class="event-info">
-          <div class="event-name">${e.name}</div>
-          <div class="event-time-txt">${dateLabel(e.date)} · ${e.start}–${e.end}</div>
-        </div>
-        <button class="event-del" onclick="editEvent('${e.id}')">✏️</button>
-        <button class="event-del" onclick="delEvent('${e.id}')">×</button>
+  const slots=getSlots(g,state.curWeek);
+  if(slots.length){const best=slots.sort((a,b)=>b.dur-a.dur)[0];openPropose(best.date,m2t(best.start),m2t(best.end));}
+  else openPropose(todayStr(),'17:00','20:00');
+}
+function openPropose(date,start,end){
+  document.getElementById('p-date').value=date;
+  document.getElementById('p-start').value=start;
+  document.getElementById('p-end').value=end;
+  om('m-propose');
+}
+function confirmPropose(){
+  const date=document.getElementById('p-date').value;
+  const start=document.getElementById('p-start').value;
+  const end=document.getElementById('p-end').value;
+  if(!date||!start||!end){showToast('Rellena todos los campos');return}
+  if(start>=end){showToast('Hora fin debe ser después del inicio');return}
+  const g=state.groups.find(x=>x.id===state.curGid);if(!g)return;
+  if(!g.plans)g.plans=[];
+  const plan={id:uid(),date,start,end,createdBy:'me',participants:[{mid:'me',start,end}]};
+  g.plans.push(plan);
+  // "notify" — add as reserved in own schedule
+  g.events.push({id:uid(),memberId:'me',name:'Tiempo reservado',type:'reservado',color:'#888',date,start,end,isReserved:true,planId:plan.id});
+  save();cm('m-propose');
+  switchTab('plans');
+  showToast('Propuesta enviada al grupo 📣');
+}
+
+// ── PLANS ─────────────────────────────────────────────
+function renderPlans(){
+  const g=state.groups.find(x=>x.id===state.curGid);if(!g)return;
+  const plans=g.plans||[];
+  let html='';
+  if(!plans.length){html=`<div class="empty"><div class="empty-icon">📋</div><p>Sin planes propuestos todavía.<br>Pulsa el botón ✏️ para proponer uno.</p></div>`;document.getElementById('tab-plans').innerHTML=html;return}
+
+  const pending=plans.filter(p=>!p.participants.find(x=>x.mid==='me'));
+  const joined=plans.filter(p=>p.participants.find(x=>x.mid==='me'));
+
+  if(pending.length){
+    html+=`<div class="sec-title">📣 Pendiente de respuesta</div>`;
+    pending.forEach(p=>{
+      html+=`<div class="plan-card" style="border-color:#FDE8C8;background:#FFFBF0">
+        <div class="plan-date">${dateLabel(p.date)}</div>
+        <div class="plan-time">${p.start} – ${p.end}</div>
+        <div style="margin-top:10px"><button class="btn-sm" onclick="openJoinPlan('${p.id}')">Unirme al plan</button></div>
       </div>`;
     });
-    html+='</div>';
   }
-  document.getElementById('tab-events').innerHTML=html;
-}
-function openAddEvent(){
-  state.editEvId=null;
-  document.getElementById('m-event-title').textContent='Añadir compromiso';
-  document.getElementById('ev-name').value='';
-  document.getElementById('ev-type').value='trabajo';
-  document.getElementById('ev-date').value=todayStr();
-  document.getElementById('ev-start').value='09:00';
-  document.getElementById('ev-end').value='10:00';
-  om('m-event');
-}
-function editEvent(id){
-  const g=state.groups.find(x=>x.id===state.curGid);if(!g)return;
-  const ev=g.events.find(e=>e.id===id);if(!ev)return;
-  state.editEvId=id;
-  document.getElementById('m-event-title').textContent='Editar compromiso';
-  document.getElementById('ev-name').value=ev.name;
-  document.getElementById('ev-type').value=ev.type;
-  document.getElementById('ev-date').value=ev.date;
-  document.getElementById('ev-start').value=ev.start;
-  document.getElementById('ev-end').value=ev.end;
-  om('m-event');
-}
-function saveEvent(){
-  const name=document.getElementById('ev-name').value.trim();
-  const type=document.getElementById('ev-type').value;
-  const date=document.getElementById('ev-date').value;
-  const start=document.getElementById('ev-start').value;
-  const end=document.getElementById('ev-end').value;
-  if(!name||!date||!start||!end){showToast('Rellena todos los campos');return}
-  if(start>=end){showToast('La hora de fin debe ser después del inicio');return}
-  const g=state.groups.find(x=>x.id===state.curGid);if(!g)return;
-  if(state.editEvId){
-    const ev=g.events.find(e=>e.id===state.editEvId);
-    if(ev){ev.name=name;ev.type=type;ev.date=date;ev.start=start;ev.end=end}
-  } else {
-    g.events.push({id:uid(),memberId:'me',name,type,date,start,end});
+  if(joined.length){
+    html+=`<div class="sec-title">Planes confirmados</div>`;
+    joined.forEach(p=>{
+      const parts=p.participants.map(x=>{const mem=g.members.find(m=>m.id===x.mid);return mem?{name:mem.name,color:mem.color,start:x.start,end:x.end}:null}).filter(Boolean);
+      html+=`<div class="plan-card">
+        <div class="plan-date">${dateLabel(p.date)}</div>
+        <div class="plan-time">${p.start} – ${p.end}</div>
+        <div class="plan-members">
+          ${parts.map(x=>`<div class="plan-member-pill"><div style="width:8px;height:8px;border-radius:50%;background:${x.color}"></div>${x.name} <span style="color:var(--muted);font-size:11px">${x.start}–${x.end}</span></div>`).join('')}
+        </div>
+        ${p.participants.find(x=>x.mid==='me')?`<button style="background:none;border:none;color:#ccc;font-size:12px;cursor:pointer;margin-top:8px;font-family:inherit" onclick="leavePlan('${p.id}')">Salir del plan</button>`:''}
+      </div>`;
+    });
   }
-  cm('m-event');save();renderEvents();renderSlots();renderSchedule();
-  showToast(state.editEvId?'Compromiso actualizado ✓':'Compromiso añadido ✓');
+  document.getElementById('tab-plans').innerHTML=html;
 }
-function delEvent(id){
-  if(!confirm('¿Eliminar este compromiso?'))return;
+
+function openJoinPlan(planId){
   const g=state.groups.find(x=>x.id===state.curGid);if(!g)return;
-  g.events=g.events.filter(e=>e.id!==id);
-  save();renderEvents();renderSlots();renderSchedule();
-  showToast('Eliminado ✓');
+  const p=(g.plans||[]).find(x=>x.id===planId);if(!p)return;
+  state.pendingPlanId=planId;
+  document.getElementById('jp-day').textContent=dateLabel(p.date);
+  document.getElementById('jp-time').textContent=`${p.start} – ${p.end}`;
+  document.getElementById('jp-start').value=p.start;
+  document.getElementById('jp-end').value=p.end;
+  om('m-join-plan');
+}
+function joinPlan(){
+  const start=document.getElementById('jp-start').value;
+  const end=document.getElementById('jp-end').value;
+  if(start>=end){showToast('Hora fin debe ser después del inicio');return}
+  const g=state.groups.find(x=>x.id===state.curGid);if(!g)return;
+  const p=(g.plans||[]).find(x=>x.id===state.pendingPlanId);if(!p)return;
+  p.participants.push({mid:'me',start,end});
+  // add to own schedule as reserved
+  g.events.push({id:uid(),memberId:'me',name:'Tiempo reservado',type:'reservado',color:'#888',date:p.date,start,end,isReserved:true,planId:p.id});
+  save();cm('m-join-plan');renderPlans();buildGroupTabs();renderHome();
+  showToast('¡Te has unido al plan! ✓');
+}
+function leavePlan(planId){
+  if(!confirm('¿Salir de este plan?'))return;
+  const g=state.groups.find(x=>x.id===state.curGid);if(!g)return;
+  const p=(g.plans||[]).find(x=>x.id===planId);if(!p)return;
+  p.participants=p.participants.filter(x=>x.mid!=='me');
+  g.events=g.events.filter(e=>e.planId!==planId||e.memberId!=='me');
+  save();renderPlans();buildGroupTabs();
+  showToast('Has salido del plan');
+}
+
+// ── GROUP CALENDAR ────────────────────────────────────
+function renderGroupCal(){
+  const g=state.groups.find(x=>x.id===state.curGid);if(!g)return;
+  const sharing=g.members.filter(m=>m.sharing);
+  if(!sharing.length){document.getElementById('tab-groupcal').innerHTML=`<div class="empty"><div class="empty-icon">🔒</div><p>Ningún miembro comparte su horario todavía.</p></div>`;return}
+  if(!state.groupCalHidden[state.curGid])state.groupCalHidden[state.curGid]={};
+  const hidden=state.groupCalHidden[state.curGid];
+  const dates=weekDates(state.curWeek);
+  const d0=new Date(dates[0]),d6=new Date(dates[6]),fmt=d=>`${d.getDate()} ${MONTHS[d.getMonth()]}`;
+  const wl=state.curWeek===0?'Esta semana':state.curWeek===1?'Próxima semana':`${fmt(d0)} – ${fmt(d6)}`;
+
+  // member filter toggles
+  let html=`<div class="week-nav"><button onclick="gcOff(-1)">‹</button><span class="week-label">${wl}</span><button onclick="gcOff(1)">›</button></div>
+  <div style="background:white;border-radius:var(--r);border:0.5px solid var(--sep);padding:10px 14px;margin-bottom:12px">
+    <div style="font-size:11px;font-weight:700;color:var(--muted);letter-spacing:0.5px;text-transform:uppercase;margin-bottom:8px">Mostrar miembros</div>`;
+  sharing.forEach(m=>{
+    const isHidden=hidden[m.id];
+    html+=`<div class="mem-toggle-row">
+      <div style="width:10px;height:10px;border-radius:50%;background:${m.color};flex-shrink:0"></div>
+      <span style="flex:1;font-size:14px;color:${isHidden?'var(--muted)':'var(--dark)'}">${m.name}${m.id==='me'?' (tú)':''}</span>
+      <label class="toggle"><input type="checkbox" ${!isHidden?'checked':''} onchange="toggleGCMember('${m.id}',this.checked)"><span class="toggle-slider"></span></label>
+    </div>`;
+  });
+  html+=`</div>`;
+
+  // combined calendar
+  const visibleMembers=sharing.filter(m=>!hidden[m.id]);
+  const allEvs=[];
+  visibleMembers.forEach(mem=>{
+    g.events.filter(e=>e.memberId===mem.id&&dates.includes(e.date)).forEach(e=>{
+      allEvs.push({...e,memberColor:mem.color,memberName:mem.name});
+    });
+  });
+
+  // mini calendar
+  html+=`<div class="cal-wrap"><div class="cal-head"><div class="cal-tc"></div>`+
+    dates.map(date=>{const d=new Date(date+'T00:00:00'),it=date===todayStr();return`<div class="cal-dc"><div class="cal-dn">${DAYS_S[d.getDay()]}</div><div class="cal-dd${it?' today':''}">${d.getDate()}</div></div>`}).join('')+
+    `</div><div class="cal-body"><div class="cal-tc2">`+
+    Array.from({length:CAL_H},(_,i)=>`<div class="cal-tl">${CAL_S+i}h</div>`).join('')+
+    `</div><div class="cal-grid" id="gc-grid"></div></div></div>`;
+
+  document.getElementById('tab-groupcal').innerHTML=html;
+
+  const grid=document.getElementById('gc-grid');
+  const totalH=CAL_H*PX;
+  dates.forEach(date=>{
+    const col=document.createElement('div');col.className='cal-col';col.style.minHeight=totalH+'px';
+    for(let i=0;i<CAL_H;i++){const hl=document.createElement('div');hl.className='cal-hl';hl.style.top=(i*PX)+'px';col.appendChild(hl)}
+    allEvs.filter(e=>e.date===date).forEach(ev=>{
+      const sm=t2m(ev.start),em=t2m(ev.end);
+      const top=Math.max(0,(sm-CAL_S*60)/60*PX),h=Math.max(12,(em-sm)/60*PX-2);
+      const col2=ev.memberColor;
+      const b=document.createElement('div');b.className='cal-ev';
+      b.style.cssText=`top:${top}px;height:${h}px;background:${col2}22;color:${col2};border-left:2.5px solid ${col2}`;
+      b.innerHTML=`<div class="en">${ev.isReserved?'Reservado':ev.name}</div>`;
+      col.appendChild(b);
+    });
+    grid.appendChild(col);
+  });
+}
+function gcOff(d){state.curWeek+=d;renderGroupCal()}
+function toggleGCMember(mid,visible){
+  if(!state.groupCalHidden[state.curGid])state.groupCalHidden[state.curGid]={};
+  state.groupCalHidden[state.curGid][mid]=!visible;
+  save();renderGroupCal();
 }
 
 // ── MEMBERS ───────────────────────────────────────────
@@ -544,88 +724,137 @@ function renderMembers(){
     <div class="invite-text">planout.app/join/${g.code}</div>
     <button class="invite-copy" onclick="copyText('planout.app/join/${g.code}')">Copiar</button>
   </div>
-  <p style="color:var(--muted);font-size:13px;margin-bottom:16px">Comparte el link para invitar a alguien</p>
-  <div class="section-title">Miembros (${g.members.length})</div>
-  <div style="background:white;border-radius:var(--radius);border:0.5px solid var(--sep);padding:0 14px">`;
+  <p style="color:var(--muted);font-size:13px;margin-bottom:16px">Cualquiera con este link puede unirse</p>
+  <div class="sec-title">Miembros (${g.members.length})</div>
+  <div style="background:white;border-radius:var(--r);border:0.5px solid var(--sep);padding:0 14px">`;
   g.members.forEach(m=>{
-    html+=`<div class="member-item">
-      <div class="m-avatar" style="background:${m.color}">${m.name[0].toUpperCase()}</div>
+    html+=`<div class="m-item">
+      <div class="m-av" style="background:${m.color}">${m.name[0].toUpperCase()}</div>
       <div style="flex:1">
-        <div class="m-name">${m.name}${m.id==='me'?' (tú)':''}</div>
-        <div class="m-role">${m.id===g.creatorId?'Creador':'Miembro'}</div>
+        <div style="font-size:15px;font-weight:500;color:var(--dark)">${m.name}${m.id==='me'?' (tú)':''}</div>
+        <div style="font-size:11px;color:var(--muted)">${m.id===g.creatorId?'Creador · ':''} ${m.sharing?'Compartiendo disponibilidad':'Privado'}</div>
       </div>
-      ${g.creatorId==='me'&&m.id!=='me'?`<button class="kick-btn" onclick="kickMember('${m.id}')">Expulsar</button>`:''}
+      ${g.creatorId==='me'&&m.id!=='me'?`<button style="background:none;border:none;color:#ccc;font-size:12px;cursor:pointer;padding:4px;font-family:inherit" onclick="kickMember('${m.id}')">Expulsar</button>`:''}
     </div>`;
   });
   html+='</div>';
   document.getElementById('tab-members').innerHTML=html;
 }
 function kickMember(mid){
-  if(!confirm('¿Expulsar a este miembro?'))return;
+  if(!confirm('¿Expulsar?'))return;
   const g=state.groups.find(x=>x.id===state.curGid);if(!g)return;
-  g.members=g.members.filter(m=>m.id!==mid);
-  g.events=g.events.filter(e=>e.memberId!==mid);
-  save();renderMembers();renderSlots();showToast('Miembro eliminado');
+  g.members=g.members.filter(m=>m.id!==mid);g.events=g.events.filter(e=>e.memberId!==mid);
+  save();renderMembers();renderSlots();
 }
 
-// ── PROPOSE ───────────────────────────────────────────
-function showPropose(){
-  const g=state.groups.find(x=>x.id===state.curGid);if(!g)return;
-  const slots=getSlots(g,state.curWeek);
-  if(!slots.length){showToast('No hay huecos esta semana');return}
-  const best=slots.sort((a,b)=>b.dur-a.dur)[0];
-  openPropose(best.date,m2t(best.start),m2t(best.end),`${Math.floor(best.dur/60)}h`);
+// ── LABELS ────────────────────────────────────────────
+let newLabelColorSel=PALETTE[0];
+function renderLabelColorPicker(){
+  document.getElementById('new-label-colors').innerHTML=PALETTE.slice(0,8).map(c=>`<div class="cdot${c===newLabelColorSel?' sel':''}" style="background:${c}" onclick="pickNLC('${c}')"></div>`).join('');
 }
-function openPropose(date,start,end,dur){
-  document.getElementById('p-day').textContent=dateLabel(date);
-  document.getElementById('p-time').textContent=`${start} – ${end}`;
-  document.getElementById('p-dur').textContent=dur+' libres para todos';
-  document.getElementById('vote-sec').style.display='';
-  document.getElementById('vote-res').style.display='none';
-  window._plan={date,start,end};
-  om('m-propose');
+function pickNLC(c){newLabelColorSel=c;renderLabelColorPicker()}
+function createLabel(){
+  const name=document.getElementById('new-label-name').value.trim();
+  if(!name){showToast('Escribe un nombre para la etiqueta');return}
+  if(state.labels.find(l=>l.name.toLowerCase()===name.toLowerCase())){showToast('Ya existe esa etiqueta');return}
+  state.labels.push({id:uid(),name,color:newLabelColorSel});
+  document.getElementById('new-label-name').value='';
+  save();renderLabelChips();
 }
-function vote(yes){
-  document.getElementById('vote-sec').style.display='none';
-  document.getElementById('vote-res').style.display='';
-  if(yes){
-    document.getElementById('v-emoji').textContent='✅';
-    document.getElementById('v-msg').textContent='¡Plan confirmado! Ya aparece en tu horario.';
-    const g=state.groups.find(x=>x.id===state.curGid),p=window._plan;
-    g.events.push({id:uid(),memberId:'me',name:`Plan: ${g.name}`,type:'plan',date:p.date,start:p.start,end:p.end,groupName:g.name});
-    save();renderSchedule();
+function deleteLabel(id){
+  state.labels=state.labels.filter(l=>l.id!==id);
+  if(state.selectedLabel===id)state.selectedLabel=null;
+  save();renderLabelChips();
+}
+function renderLabelChips(){
+  const chips=document.getElementById('ev-label-chips');if(!chips)return;
+  chips.innerHTML=state.labels.map(l=>`<div class="label-chip${state.selectedLabel===l.id?' selected':''}" style="background:${l.color}22;color:${l.color}" onclick="selectLabel('${l.id}')">
+    ${l.name}
+    <button class="label-chip-del" onclick="event.stopPropagation();deleteLabel('${l.id}')">×</button>
+  </div>`).join('');
+}
+function selectLabel(id){state.selectedLabel=state.selectedLabel===id?null:id;renderLabelChips()}
+
+// ── EVENTS ────────────────────────────────────────────
+function populateGroupSelect(gid){
+  const sel=document.getElementById('ev-group');if(!sel)return;
+  sel.innerHTML=state.groups.length?state.groups.map(g=>`<option value="${g.id}"${g.id===gid?' selected':''}>${g.name}</option>`).join(''):'<option value="">Sin grupos todavía</option>';
+}
+function openAddEvent(date,gid){
+  state.editEvId=null;state.selectedLabel=null;
+  document.getElementById('m-ev-title').textContent='Añadir evento';
+  document.getElementById('ev-name').value='';
+  document.getElementById('ev-date').value=date||todayStr();
+  document.getElementById('ev-start').value='09:00';
+  document.getElementById('ev-end').value='10:00';
+  populateGroupSelect(gid||state.curGid||state.groups[0]?.id);
+  renderLabelChips();renderLabelColorPicker();
+  om('m-event');
+}
+function editEventById(id,gid){
+  const g=state.groups.find(x=>x.id===gid);if(!g)return;
+  const ev=g.events.find(e=>e.id===id);if(!ev)return;
+  state.editEvId=id;
+  state.selectedLabel=ev.labelId||null;
+  document.getElementById('m-ev-title').textContent='Editar evento';
+  document.getElementById('ev-name').value=ev.isReserved?'':ev.customName||'';
+  document.getElementById('ev-date').value=ev.date;
+  document.getElementById('ev-start').value=ev.start;
+  document.getElementById('ev-end').value=ev.end;
+  populateGroupSelect(gid);
+  renderLabelChips();renderLabelColorPicker();
+  cm('m-evdetail');om('m-event');
+}
+function saveEvent(){
+  const customName=document.getElementById('ev-name').value.trim();
+  const gid=document.getElementById('ev-group').value;
+  const date=document.getElementById('ev-date').value;
+  const start=document.getElementById('ev-start').value;
+  const end=document.getElementById('ev-end').value;
+  if(!date||!start||!end){showToast('Rellena fecha y hora');return}
+  if(start>=end){showToast('Hora fin debe ser después del inicio');return}
+  const g=state.groups.find(x=>x.id===gid);if(!g){showToast('Selecciona un grupo');return}
+  const label=state.labels.find(l=>l.id===state.selectedLabel);
+  const name=customName||(label?label.name:'Evento sin nombre');
+  const color=label?label.color:'#888888';
+  const evData={memberId:'me',name,customName:customName||null,labelId:label?.id||null,color,date,start,end,isReserved:false};
+  if(state.editEvId){
+    let found=false;
+    state.groups.forEach(grp=>{const ev=grp.events.find(e=>e.id===state.editEvId);if(ev){if(grp.id!==gid){grp.events=grp.events.filter(e=>e.id!==state.editEvId);g.events.push({id:state.editEvId,...evData});}else{Object.assign(ev,evData);}found=true;}});
+    if(!found)g.events.push({id:state.editEvId,...evData});
   } else {
-    document.getElementById('v-emoji').textContent='❌';
-    document.getElementById('v-msg').textContent='Entendido. Buscaremos otro momento.';
+    g.events.push({id:uid(),...evData});
   }
+  cm('m-event');save();renderSchedule();
+  showToast(state.editEvId?'Actualizado ✓':'Añadido ✓');
+}
+function delEvById(id,gid){
+  if(!confirm('¿Eliminar?'))return;
+  const g=state.groups.find(x=>x.id===gid);if(g)g.events=g.events.filter(e=>e.id!==id);
+  save();cm('m-evdetail');renderSchedule();showToast('Eliminado ✓');
 }
 
 // ── MI HORARIO ────────────────────────────────────────
 function getAllMyEvents(off){
   const dates=weekDates(off),evs=[];
-  state.groups.forEach(g=>{
-    g.events.filter(e=>e.memberId==='me'&&dates.includes(e.date)).forEach(e=>{
-      evs.push({...e,groupId:g.id,groupName:g.name,groupColor:g.color});
-    });
-  });
+  state.groups.forEach(g=>{g.events.filter(e=>e.memberId==='me'&&dates.includes(e.date)).forEach(e=>{evs.push({...e,groupId:g.id,groupName:g.name,groupColor:g.color})})});
   return evs;
 }
-function swOff(d){state.swOff+=d;renderSchedule()}
+function swOff(d){state.swOff+=d;state.selectedDay=null;renderSchedule()}
+function selectDay(date){state.selectedDay=state.selectedDay===date?null:date;renderSchedule()}
+
 function renderSchedule(){
   const off=state.swOff,dates=weekDates(off),today=todayStr(),evs=getAllMyEvents(off);
   const d0=new Date(dates[0]),d6=new Date(dates[6]),fmt=d=>`${d.getDate()} ${MONTHS[d.getMonth()]}`;
   document.getElementById('sw-label').textContent=off===0?'Esta semana':off===1?'Próxima semana':`${fmt(d0)} – ${fmt(d6)}`;
-  // legend
-  const usedG=[...new Set(evs.map(e=>e.groupId))].map(gid=>state.groups.find(g=>g.id===gid)).filter(Boolean);
-  document.getElementById('sw-legend').innerHTML=usedG.map(g=>`<div class="gpill"><div class="gdot" style="background:${g.color}"></div>${g.name}</div>`).join('');
-  // calendar header
+
   document.getElementById('cal-head').innerHTML=`<div class="cal-tc"></div>`+dates.map(date=>{
-    const d=new Date(date+'T00:00:00'),it=date===today;
-    return`<div class="cal-dc"><div class="cal-dn">${DAYS_S[d.getDay()]}</div><div class="cal-dd${it?' today':''}">${d.getDate()}</div></div>`;
+    const d=new Date(date+'T00:00:00'),it=date===today,sel=date===state.selectedDay;
+    return`<div class="cal-dc${sel?' sel':''}" onclick="selectDay('${date}')"><div class="cal-dn">${DAYS_S[d.getDay()]}</div><div class="cal-dd${it?' today':''}">${d.getDate()}</div><div class="cal-hint">${sel?'+ añadir':'·'}</div></div>`;
   }).join('');
-  // times
+
   document.getElementById('cal-times').innerHTML=Array.from({length:CAL_H},(_,i)=>`<div class="cal-tl">${CAL_S+i}h</div>`).join('');
-  // grid
+
   const grid=document.getElementById('cal-grid');grid.innerHTML='';
   const totalH=CAL_H*PX;
   dates.forEach(date=>{
@@ -634,84 +863,68 @@ function renderSchedule(){
     if(date===today){const now=new Date(),nm=now.getHours()*60+now.getMinutes();if(nm>=CAL_S*60&&nm<=CAL_E*60){const nl=document.createElement('div');nl.className='cal-now';nl.style.top=((nm-CAL_S*60)/60*PX)+'px';col.appendChild(nl)}}
     evs.filter(e=>e.date===date).forEach(ev=>{
       const sm=t2m(ev.start),em=t2m(ev.end);
-      const top=Math.max(0,(sm-CAL_S*60)/60*PX),h=Math.max(16,(em-sm)/60*PX-2);
-      const bg=BG[ev.type]||'#eee',col2=TC[ev.type]||'#333',gc=ev.groupColor||col2;
+      const top=Math.max(0,(sm-CAL_S*60)/60*PX),h=Math.max(12,(em-sm)/60*PX-2);
+      const c=ev.color||'#888';
       const b=document.createElement('div');b.className='cal-ev';
-      b.style.cssText=`top:${top}px;height:${h}px;background:${bg};color:${col2};border-left:2.5px solid ${gc}`;
-      b.innerHTML=`<div class="en">${ev.name}</div>${h>24?`<div class="et">${ev.start}–${ev.end}</div>`:''}`;
+      b.style.cssText=`top:${top}px;height:${h}px;background:${c}25;color:${c};border-left:2.5px solid ${c}`;
+      b.innerHTML=`<div class="en">${ev.isReserved?'Reservado':ev.name}</div>${h>20?`<div class="et">${ev.start}–${ev.end}</div>`:''}`;
       b.onclick=()=>showEvDetail(ev);col.appendChild(b);
     });
     grid.appendChild(col);
   });
-  // list
+
+  // day strip
+  const wrap=document.getElementById('day-strip-wrap');
+  if(state.selectedDay){
+    const dayEvs=evs.filter(e=>e.date===state.selectedDay).sort((a,b)=>a.start.localeCompare(b.start));
+    let html=`<div class="day-strip"><div class="day-strip-hd"><div class="day-strip-title">${dateLabel(state.selectedDay)}</div><button class="add-day-btn" onclick="openAddEvent('${state.selectedDay}',null)">+ Añadir</button></div>`;
+    if(!dayEvs.length){html+=`<p style="color:var(--muted);font-size:13px">Sin eventos. Pulsa Añadir.</p>`}
+    else dayEvs.forEach(ev=>{
+      const c=ev.color||'#888';
+      html+=`<div class="ev-item" style="cursor:pointer" onclick="showEvDetail(${JSON.stringify(ev).replace(/"/g,'&quot;')})">
+        <div class="ev-dot" style="background:${c}"></div>
+        <div class="ev-info"><div class="ev-name">${ev.isReserved?'Tiempo reservado':ev.name}</div><div class="ev-sub">${ev.start}–${ev.end} · ${ev.groupName}</div></div>
+        <button class="ev-del" onclick="event.stopPropagation();delEvById('${ev.id}','${ev.groupId}')">×</button>
+      </div>`;
+    });
+    html+='</div>';wrap.innerHTML=html;wrap.style.display='';
+  } else {wrap.innerHTML='';wrap.style.display='none'}
+
   const sorted=[...evs].sort((a,b)=>a.date.localeCompare(b.date)||a.start.localeCompare(b.start));
   const listEl=document.getElementById('sw-list');
-  if(!sorted.length){listEl.innerHTML=`<div class="empty" style="margin-top:12px"><div class="empty-icon">📭</div><p>Sin eventos esta semana.<br>Añade compromisos en tus grupos.</p></div>`;return}
+  if(!sorted.length){listEl.innerHTML=`<div class="empty" style="margin-top:8px"><div class="empty-icon">📭</div><p>Sin eventos esta semana.<br>Toca un día para añadir.</p></div>`;return}
   const byDate={};sorted.forEach(e=>{if(!byDate[e.date])byDate[e.date]=[];byDate[e.date].push(e)});
-  listEl.innerHTML=Object.entries(byDate).map(([date,devs])=>{
-    const isToday=date===today;
-    return`<div class="section-title">${isToday?'Hoy — ':''}${dateLabel(date)}</div>
-    <div style="background:white;border-radius:var(--radius);border:0.5px solid var(--sep);padding:0 14px;margin-bottom:6px">`+
-    devs.map(e=>`<div class="event-item" onclick="showEvDetail(${JSON.stringify(e).replace(/'/g,'&#39;').replace(/"/g,'&quot;')})" style="cursor:pointer">
-      <div class="event-dot" style="background:${e.groupColor||TC[e.type]||'#888'}"></div>
-      <div class="event-info">
-        <div class="event-name">${e.name}${e.type==='plan'?`<span class="plan-chip">Plan ✓</span>`:''}</div>
-        <div class="event-time-txt">${e.start}–${e.end} · ${e.groupName}</div>
-      </div>
-    </div>`).join('')+'</div>';
-  }).join('');
+  listEl.innerHTML=Object.entries(byDate).map(([date,devs])=>`
+    <div class="sec-title">${date===today?'Hoy — ':''}${dateLabel(date)}</div>
+    <div style="background:white;border-radius:var(--r);border:0.5px solid var(--sep);padding:0 14px;margin-bottom:6px">`+
+    devs.map(e=>{const c=e.color||'#888';return`<div class="ev-item" onclick="showEvDetail(${JSON.stringify(e).replace(/'/g,'&#39;').replace(/"/g,'&quot;')})" style="cursor:pointer">
+      <div class="ev-dot" style="background:${c}"></div>
+      <div class="ev-info"><div class="ev-name">${e.isReserved?'Tiempo reservado':e.name}</div><div class="ev-sub">${e.start}–${e.end} · ${e.groupName}</div></div>
+    </div>`;}).join('')+'</div>'
+  ).join('');
 }
+
 function showEvDetail(ev){
   if(typeof ev==='string')try{ev=JSON.parse(ev)}catch(e){return}
-  const d=new Date(ev.date+'T00:00:00');
+  const c=ev.color||'#888';
   document.getElementById('evdetail-content').innerHTML=`
     <div style="font-size:11px;font-weight:700;color:var(--muted);letter-spacing:0.5px;text-transform:uppercase;margin-bottom:4px">${ev.groupName}</div>
-    <div style="font-size:20px;font-weight:700;color:var(--dark);margin-bottom:14px">${ev.name}</div>
-    <div style="background:#F5F5F5;border-radius:var(--radius-sm);padding:14px;margin-bottom:16px">
-      <div style="font-size:14px;color:var(--muted)">${dateLabel(ev.date)}</div>
+    <div style="font-size:20px;font-weight:700;color:var(--dark);margin-bottom:14px;display:flex;align-items:center;gap:8px">
+      <span style="width:12px;height:12px;border-radius:50%;background:${c};display:inline-block;flex-shrink:0"></span>
+      ${ev.isReserved?'Tiempo reservado':ev.name}
+    </div>
+    <div style="background:#F5F5F5;border-radius:var(--rs);padding:14px;margin-bottom:16px">
+      <div style="font-size:13px;color:var(--muted)">${dateLabel(ev.date)}</div>
       <div style="font-size:24px;font-weight:700;color:var(--dark);margin-top:4px">${ev.start} – ${ev.end}</div>
     </div>
-    ${ev.type!=='plan'?`<button class="btn-secondary" style="color:#c00;border-color:#fcc" onclick="delEvFromSched('${ev.id}','${ev.groupId}')">Eliminar evento</button>`:''}
-  `;
+    <div class="flex-row">
+      <button class="btn-secondary flex-1" onclick="editEventById('${ev.id}','${ev.groupId}')">✏️ Editar</button>
+      <button class="btn-secondary flex-1" style="color:#c00;border-color:#fcc" onclick="delEvById('${ev.id}','${ev.groupId}')">Eliminar</button>
+    </div>`;
   om('m-evdetail');
 }
-function delEvFromSched(id,gid){
-  if(!confirm('¿Eliminar este evento?'))return;
-  const g=state.groups.find(x=>x.id===gid);if(g)g.events=g.events.filter(e=>e.id!==id);
-  save();cm('m-evdetail');renderSchedule();showToast('Eliminado ✓');
-}
 
-// ── DEMO DATA (solo si no hay datos guardados) ─────────
-function loadDemo(){
-  if(state.groups.length)return;
-  function nd(n){const d=new Date(),day=d.getDay(),m=new Date(d);m.setDate(d.getDate()-(day===0?6:day-1)+n);return m.toISOString().split('T')[0]}
-  state.groups=[
-    {id:'g1',name:'Amigos del gym',code:'gym24',creatorId:'me',color:COLORS[0],
-     members:[{id:'me',name:'Tú',color:COLORS[0]},{id:'u2',name:'Sara',color:COLORS[1]},{id:'u3',name:'Marcos',color:COLORS[2]}],
-     events:[
-       {id:'e1',memberId:'me',name:'Trabajo',type:'trabajo',date:nd(0),start:'09:00',end:'14:00'},
-       {id:'e2',memberId:'me',name:'Trabajo tarde',type:'trabajo',date:nd(0),start:'16:00',end:'20:00'},
-       {id:'e3',memberId:'u2',name:'Yoga Sara',type:'gym',date:nd(0),start:'07:00',end:'09:00'},
-       {id:'e4',memberId:'u2',name:'Médico Sara',type:'medico',date:nd(1),start:'10:00',end:'12:00'},
-       {id:'e5',memberId:'u3',name:'Reunión Marcos',type:'trabajo',date:nd(1),start:'08:00',end:'13:00'},
-       {id:'e6',memberId:'me',name:'Dentista',type:'medico',date:nd(3),start:'11:00',end:'13:00'},
-       {id:'e7',memberId:'me',name:'Gym',type:'gym',date:nd(4),start:'08:00',end:'09:30'},
-     ]},
-    {id:'g2',name:'Trabajo — Diseño',code:'dis24',creatorId:'me',color:COLORS[4],
-     members:[{id:'me',name:'Tú',color:COLORS[0]},{id:'u5',name:'Alex',color:COLORS[4]},{id:'u6',name:'Paula',color:COLORS[5]}],
-     events:[
-       {id:'e9',memberId:'me',name:'Stand-up',type:'trabajo',date:nd(0),start:'09:00',end:'09:30'},
-       {id:'e10',memberId:'me',name:'Stand-up',type:'trabajo',date:nd(1),start:'09:00',end:'09:30'},
-       {id:'e11',memberId:'me',name:'Stand-up',type:'trabajo',date:nd(2),start:'09:00',end:'09:30'},
-       {id:'e12',memberId:'me',name:'Revisión cliente',type:'trabajo',date:nd(2),start:'15:00',end:'17:00'},
-     ]}
-  ];
-}
-
-// ── INIT ──────────────────────────────────────────────
-load();
-loadDemo();
-renderHome();
+load();renderHome();
 </script>
 </body>
 </html>
